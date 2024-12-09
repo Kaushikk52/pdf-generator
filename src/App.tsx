@@ -23,7 +23,7 @@ export default function App() {
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-blue-600">
-            A9 Business Offer Letter Generator
+            R K INSURANCE Offer Letter 
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -53,11 +53,9 @@ export default function App() {
             fileName="offer-letter.pdf"
             className="block w-full"
           >
-            {({ loading }) => (
-              <Button className="w-full bg-green-600 hover:bg-green-700" disabled={loading || !formData.name || !formData.position}>
-                {loading ? 'Generating...' : 'Download Offer Letter'}
-              </Button>
-            )}
+              <Button className="w-full bg-green-600 hover:bg-green-700" disabled={!formData.name || !formData.position}>
+                Download Offer Letter
+              </Button> 
           </PDFDownloadLink>
         </CardContent>
       </Card>
