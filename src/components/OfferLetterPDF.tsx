@@ -126,6 +126,16 @@ interface OfferLetterPDFProps {
     position: string
     name: string
     date: string
+    basicDA: string
+    hra: string
+    executiveAllowance: string
+    bonus: string
+    epf: string
+    monthlyGrossSalary: string
+    professionalTax: string
+    esi: string
+    totalDeduction: string
+    netMonthlyTakeHome: string
   }
 }
 
@@ -135,7 +145,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Image src="/banner.jpeg" style={styles.logo} />
-          <Text style={styles.headerText}>R K INSURANCE SERVICES PVT.LTD</Text>
+          <Text style={styles.headerText}>R K INSURANCE SERVICE</Text>
         </View>
         <View style={styles.section}>
           <Text style={styles.subtitle}>Name:- {data.name}</Text>
@@ -152,7 +162,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         <View style={styles.section}>
           <Text style={styles.text}>
             Your employment shall begin from the date of your reporting at the premises of our esteemed
-            Organization "R K INSURANCE SERVICES PVT.LTD" located at MUMBAI.
+            Organization "R K INSURANCE SERVICE" located at MUMBAI.
           </Text>
         </View>
         <View style={styles.section}>
@@ -164,7 +174,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         </View>
         <View style={styles.section}>
           <Text style={styles.text}>
-            For all reasons you will be deemed an employee of R K INSURANCE SERVICES PVT.LTD
+            For all reasons you will be deemed an employee of R K INSURANCE SERVICE
           </Text>
         </View>
         <View style={styles.section}>
@@ -218,43 +228,43 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>Basic + DA</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>15,000/-</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.basicDA}/-</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>HRA</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>2,500/-</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.hra}/-</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>Executive Allowance</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>1,700/-</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.executiveAllowance}/-</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>Bonus</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>--</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.bonus}</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>EPF (Employer Contribution)</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>--</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.epf}</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>Monthly Gross Salary [A]</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>19,200/-</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.monthlyGrossSalary}/-</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>Less PT (PROFESSIONAL TAX)</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>200/-</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.professionalTax}/-</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>Less ESI 0.75% Employee</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>--</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.esi}</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>Total Employee's Deduction [B]</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>--</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.totalDeduction}</Text></View>
           </View>
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, { flex: 2 }]}><Text>Net Monthly Take Home (A-B)*</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>19,000/-</Text></View>
+            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.netMonthlyTakeHome}/-</Text></View>
           </View>
         </View>
         <View style={styles.section}>
@@ -273,7 +283,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         </View>
         <View style={styles.footer}>
           <Text>Thanking you,</Text>
-          <Text>For R K INSURANCE SERVICES PVT.LTD I Confirm and Accept this Offer Letter and Annexure</Text>
+          <Text>For R K INSURANCE SERVICE I Confirm and Accept this Offer Letter and Annexure</Text>
           <View style={styles.signature}>
             <View>
               <Text>Authorized Signatory</Text>
@@ -441,7 +451,7 @@ for 2 days if this is done multiply time we will be taking strict action against
         <View style={styles.section}>
           <Text style={styles.title}>Declaration</Text>
           <Text style={styles.text}>
-            I, {data.name}, have read, understood, and accept all the terms and conditions outlined in this offer letter. I agree to abide by the company's policies, rules, and regulations during my employment with R K INSURANCE SERVICES PVT.LTD.
+            I, {data.name}, have read, understood, and accept all the terms and conditions outlined in this offer letter. I agree to abide by the company's policies, rules, and regulations during my employment with R K INSURANCE SERVICE.
           </Text>
         </View>
         <View style={styles.section}>
