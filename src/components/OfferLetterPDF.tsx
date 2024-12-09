@@ -199,7 +199,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         <View style={styles.section}>
           <Text style={styles.text}>
             Your employment shall begin from the date of your reporting at the premises of our esteemed
-            Organization "A9 BUSINESS CONSULTANCY SERVICES PVT.LTD." located at MUMBAI.
+            Organization "R K Insurance Service" located at MUMBAI.
           </Text>
         </View>
         <View style={styles.section}>
@@ -211,7 +211,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         </View>
         <View style={styles.section}>
           <Text style={styles.text}>
-            For all reasons you will be deemed an employee of A9 BUSINESS CONSULTANCY SERVICES
+            For all reasons you will be deemed an employee of R K INSURANCE SERVICES
             PVT.LTD
           </Text>
         </View>
@@ -542,8 +542,8 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
 
             Employees must obtain written approval from their supervisor and the Human Resources
             department before engaging in any outside employment. Such employment must not interfere
-            with job performance, involve working with competitors, or create any conflict of interest with A9
-            business consultancy PVT Ltd. Failure to comply with this policy may result in disciplinary action,
+            with job performance, involve working with competitors, or create any conflict of interest with R K
+             Insurance Service Failure to comply with this policy may result in disciplinary action,
             including termination.
 
             This concise clause covers the key points: the need for approval, performance standards, conflict
