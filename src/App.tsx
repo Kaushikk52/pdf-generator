@@ -52,7 +52,7 @@ export default function App() {
       <Card className="w-full max-w-2xl">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-blue-600">
-            A9 Business Offer Letter Generator
+           R K INSURANCE SERVICE - Offer Letter
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
