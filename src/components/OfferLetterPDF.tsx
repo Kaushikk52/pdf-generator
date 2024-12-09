@@ -19,24 +19,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8F9FA',
   },
   header: {
-    textAlign: 'center',
     marginBottom: 20,
   },
+  headerContent: {
+    flexDirection: 'row',
+    justifyContent:'center',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
   logo: {
-    width: 150,
-    height: 75,
-    margin: 'auto',
+    width: 70,
+    height: 50,
+    marginRight: 10,
   },
   companyName: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#3B82F6',
-    marginTop: 10,
   },
   headerText: {
     fontSize: 20,
     fontWeight: 700,
     color: '#4A90E2',
+  },
+  subject: {
+    fontSize: 14,
+    fontWeight: 700,
+    marginBottom: 5,
+    color: '#2C3E50',
+    textAlign: 'center',
   },
   section: {
     marginBottom: 10,
@@ -91,7 +102,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 30,
     left: 30,
     right: 30,
     textAlign: 'center',
@@ -102,11 +113,20 @@ const styles = StyleSheet.create({
   },
   pageNumber: {
     position: 'absolute',
-    bottom: 30,
+    bottom: 40,
     left: 0,
     right: 0,
     textAlign: 'center',
     fontSize: 10,
+    color: '#7F8C8D',
+  },
+  referenceAddress: {
+    position: 'absolute',
+    bottom: 20,
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+    fontSize: 8,
     color: '#7F8C8D',
   },
   signature: {
@@ -123,20 +143,31 @@ const styles = StyleSheet.create({
 
 interface OfferLetterPDFProps {
   data: {
-    position: string
-    name: string
-    date: string
-    basicDA: string
-    hra: string
-    executiveAllowance: string
-    bonus: string
-    epf: string
-    monthlyGrossSalary: string
-    professionalTax: string
-    esi: string
-    totalDeduction: string
-    netMonthlyTakeHome: string
-  }
+    position: string;
+    name: string;
+    date: string;
+    address: string;
+    mail: string;
+    mobile: string;
+    basicDAMonthly: string;
+    basicDAYearly: string;
+    hraMonthly: string;
+    hraYearly: string;
+    executiveAllowanceMonthly: string;
+    executiveAllowanceYearly: string;
+    bonusMonthly: string;
+    bonusYearly: string;
+    epfMonthly: string;
+    epfYearly: string;
+    monthlyGrossSalary: string;
+    yearlyGrossSalary: string;
+    professionalTaxMonthly: string;
+    professionalTaxYearly: string;
+    incomeTaxMonthly: string;
+    incomeTaxYearly: string;
+    netMonthlyTakeHome: string;
+    netYearlyTakeHome: string;
+  };
 }
 
 export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
@@ -144,13 +175,19 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Image src="/banner.jpeg" style={styles.logo} />
-          <Text style={styles.headerText}>R K INSURANCE SERVICE</Text>
+          <View style={styles.headerContent}>
+            <Image src="/logo.jpeg" style={styles.logo} />
+            <Text style={styles.companyName}>R K Insurance </Text>
+            <Text style={styles.companyName}> Services</Text>
+          </View>
+          <Text style={styles.subject}>Subject: Offer Letter</Text>
         </View>
         <View style={styles.section}>
           <Text style={styles.subtitle}>Name:- {data.name}</Text>
           <Text style={styles.subtitle}>Date:- {data.date}</Text>
-          <Text style={styles.title}>Subject: Offer Letter</Text>
+          <Text style={styles.subtitle}>Address:- {data.address}</Text>
+          <Text style={styles.subtitle}>Mail:- {data.mail}</Text>
+          <Text style={styles.subtitle}>Mobile:- {data.mobile}</Text>
         </View>
         <View style={styles.section}>
           <Text style={styles.text}>Dear {data.name},</Text>
@@ -162,7 +199,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         <View style={styles.section}>
           <Text style={styles.text}>
             Your employment shall begin from the date of your reporting at the premises of our esteemed
-            Organization "R K INSURANCE SERVICE" located at MUMBAI.
+            Organization "A9 BUSINESS CONSULTANCY SERVICES PVT.LTD." located at MUMBAI.
           </Text>
         </View>
         <View style={styles.section}>
@@ -174,7 +211,8 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         </View>
         <View style={styles.section}>
           <Text style={styles.text}>
-            For all reasons you will be deemed an employee of R K INSURANCE SERVICE
+            For all reasons you will be deemed an employee of A9 BUSINESS CONSULTANCY SERVICES
+            PVT.LTD
           </Text>
         </View>
         <View style={styles.section}>
@@ -196,12 +234,6 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             <Text style={styles.bulletContent}>Cancel Cheque Copy or Bank Statement (Existing Saving bank Account, if any)</Text>
           </View>
         </View>
-        <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-          `${pageNumber} / ${totalPages}`
-        )} fixed />
-      </Page>
-
-      <Page size="A4" style={styles.page}>
         <View style={styles.section}>
           <Text style={styles.text}>
             Your offer has been made based on the information furnished by you. However, if there is any
@@ -213,58 +245,133 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         <View style={styles.section}>
           <Text style={styles.text}>You are requested to refer page no. 3 of this letter for work related guidelines</Text>
         </View>
+        <>
+          <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+            `${pageNumber} / ${totalPages}`
+          )} fixed />
+          <Text style={styles.referenceAddress} fixed>
+            R K Insurance Service, Mumbai, Maharashtra, India
+          </Text>
+        </>
+      </Page>
+
+      <Page size="A4" style={styles.page}>
         <View style={styles.section}>
           <Text style={styles.title}>Your annual compensation package shall be as per enclosed annexure.</Text>
         </View>
         <View style={styles.table}>
-          <Text style={styles.subtitle}>Enclosure: Annexure containing compensation details</Text>
+          <Text style={styles.subtitle}>
+            Enclosure: Annexure containing compensation details
+          </Text>
           <View style={[styles.tableRow, styles.tableCellHeader]}>
             <View style={[styles.tableCell, { flex: 2 }]}>
               <Text>Particulars</Text>
             </View>
             <View style={[styles.tableCell, { flex: 1 }]}>
-              <Text>Amount (INR)</Text>
+              <Text>Monthly (INR)</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>Annual (INR)</Text>
             </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>Basic + DA</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.basicDA}/-</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>Basic</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.basicDAMonthly}/-</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.basicDAYearly}/-</Text>
+            </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>HRA</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.hra}/-</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>HRA</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.hraMonthly}/-</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.hraYearly}/-</Text>
+            </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>Executive Allowance</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.executiveAllowance}/-</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>Special Allowance</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.executiveAllowanceMonthly}/-</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.executiveAllowanceYearly}/-</Text>
+            </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>Bonus</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.bonus}</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>Bonus</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.bonusMonthly}</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.bonusYearly}</Text>
+            </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>EPF (Employer Contribution)</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.epf}</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>EPF (Employer Contribution)</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.epfMonthly}</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.epfYearly}</Text>
+            </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>Monthly Gross Salary [A]</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.monthlyGrossSalary}/-</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>Gross Salary [A]</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.monthlyGrossSalary}/-</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.yearlyGrossSalary}/-</Text>
+            </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>Less PT (PROFESSIONAL TAX)</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.professionalTax}/-</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>PT (PROFESSIONAL TAX)</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.professionalTaxMonthly}/-</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.professionalTaxYearly}/-</Text>
+            </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>Less ESI 0.75% Employee</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.esi}</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>Income Tax</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.incomeTaxMonthly}/-</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.incomeTaxYearly}/-</Text>
+            </View>
           </View>
           <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>Total Employee's Deduction [B]</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.totalDeduction}</Text></View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={[styles.tableCell, { flex: 2 }]}><Text>Net Monthly Take Home (A-B)*</Text></View>
-            <View style={[styles.tableCell, { flex: 1 }]}><Text>{data.netMonthlyTakeHome}/-</Text></View>
+            <View style={[styles.tableCell, { flex: 2 }]}>
+              <Text>Net Salary *</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.netMonthlyTakeHome}/-</Text>
+            </View>
+            <View style={[styles.tableCell, { flex: 1 }]}>
+              <Text>{data.netYearlyTakeHome}/-</Text>
+            </View>
           </View>
         </View>
         <View style={styles.section}>
@@ -283,7 +390,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         </View>
         <View style={styles.footer}>
           <Text>Thanking you,</Text>
-          <Text>For R K INSURANCE SERVICE I Confirm and Accept this Offer Letter and Annexure</Text>
+          <Text>For R K Insurance Service I Confirm and Accept this Offer Letter and Annexure</Text>
           <View style={styles.signature}>
             <View>
               <Text>Authorized Signatory</Text>
@@ -295,9 +402,14 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             </View>
           </View>
         </View>
-        <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-          `${pageNumber} / ${totalPages}`
-        )} fixed />
+        <>
+          <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+            `${pageNumber} / ${totalPages}`
+          )} fixed />
+          <Text style={styles.referenceAddress} fixed>
+          R K Insurance Service, Mumbai, Maharashtra, India
+          </Text>
+        </>
       </Page>
 
       <Page size="A4" style={styles.page}>
@@ -350,8 +462,8 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             In case of sick leave you should carry a medical proof and take approval from the TL /
             Manager/Operations Head and submit to the HR, else the attendance will be marked as
             unauthorized absence. For one day unauthorized absence, salary deduction will be for 1 day.
-Incase if you take 1 day leave without informing the Authorized person you will be marked absent
-for 2 days if this is done multiply time we will be taking strict action against you.
+            Incase if you take 1 day leave without informing the Authorized person you will be marked absent
+            for 2 days if this is done multiply time we will be taking strict action against you.
           </Text>
         </View>
         <View style={styles.section}>
@@ -361,9 +473,14 @@ for 2 days if this is done multiply time we will be taking strict action against
             charging you penalty according to the company loss.
           </Text>
         </View>
-        <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-          `${pageNumber} / ${totalPages}`
-        )} fixed />
+        <>
+          <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+            `${pageNumber} / ${totalPages}`
+          )} fixed />
+          <Text style={styles.referenceAddress} fixed>
+          R K Insurance Service, Mumbai, Maharashtra, India
+          </Text>
+        </>
       </Page>
 
       <Page size="A4" style={styles.page}>
@@ -442,16 +559,21 @@ for 2 days if this is done multiply time we will be taking strict action against
           <Text style={styles.subtitle}>Candidate's Signature: .......................................................................</Text>
           <Text style={styles.subtitle}>Date: ................................................</Text>
         </View>
-        <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-          `${pageNumber} / ${totalPages}`
-        )} fixed />
+        <>
+          <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+            `${pageNumber} / ${totalPages}`
+          )} fixed />
+          <Text style={styles.referenceAddress} fixed>
+          R K Insurance Service, Mumbai, Maharashtra, India
+          </Text>
+        </>
       </Page>
 
       <Page size="A4" style={styles.page}>
         <View style={styles.section}>
           <Text style={styles.title}>Declaration</Text>
           <Text style={styles.text}>
-            I, {data.name}, have read, understood, and accept all the terms and conditions outlined in this offer letter. I agree to abide by the company's policies, rules, and regulations during my employment with R K INSURANCE SERVICE.
+            I, {data.name}, have read, understood, and accept all the terms and conditions outlined in this offer letter. I agree to abide by the company's policies, rules, and regulations during my employment with R K Insurance Service.
           </Text>
         </View>
         <View style={styles.section}>
@@ -470,9 +592,14 @@ for 2 days if this is done multiply time we will be taking strict action against
         <View style={styles.footer}>
           <Text>This is a system-generated document and does not require a physical signature.</Text>
         </View>
-        <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
-          `${pageNumber} / ${totalPages}`
-        )} fixed />
+        <>
+          <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
+            `${pageNumber} / ${totalPages}`
+          )} fixed />
+          <Text style={styles.referenceAddress} fixed>
+          R K Insurance Service, Mumbai, Maharashtra, India
+          </Text>
+        </>
       </Page>
     </Document>
   )

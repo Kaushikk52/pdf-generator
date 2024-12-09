@@ -7,19 +7,30 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 
 interface OfferLetterData {
-  position: string
-  name: string
-  date: string
-  basicDA: string
-  hra: string
-  executiveAllowance: string
-  bonus: string
-  epf: string
-  monthlyGrossSalary: string
-  professionalTax: string
-  esi: string
-  totalDeduction: string
-  netMonthlyTakeHome: string
+  position: string;
+  name: string;
+  date: string;
+  address: string;
+  mail: string;
+  mobile: string;
+  basicDAMonthly: string;
+  basicDAYearly: string;
+  hraMonthly: string;
+  hraYearly: string;
+  executiveAllowanceMonthly: string;
+  executiveAllowanceYearly: string;
+  bonusMonthly: string;
+  bonusYearly: string;
+  epfMonthly: string;
+  epfYearly: string;
+  monthlyGrossSalary: string;
+  yearlyGrossSalary: string;
+  professionalTaxMonthly: string;
+  professionalTaxYearly: string;
+  incomeTaxMonthly: string;
+  incomeTaxYearly: string;
+  netMonthlyTakeHome: string;
+  netYearlyTakeHome: string;
 }
 
 export default function App() {
@@ -27,16 +38,27 @@ export default function App() {
     position: '',
     name: '',
     date: new Date().toISOString().split('T')[0],
-    basicDA: '15,000',
-    hra: '2,500',
-    executiveAllowance: '1,700',
-    bonus: '--',
-    epf: '--',
-    monthlyGrossSalary: '19,200',
-    professionalTax: '200',
-    esi: '--',
-    totalDeduction: '--',
-    netMonthlyTakeHome: '19,000',
+    address: '',
+    mail: '',
+    mobile: '',
+    basicDAMonthly: '',
+    basicDAYearly: '',
+    hraMonthly: '',
+    hraYearly: '',
+    executiveAllowanceMonthly: '',
+    executiveAllowanceYearly: '',
+    bonusMonthly: '',
+    bonusYearly: '',
+    epfMonthly: '',
+    epfYearly: '',
+    monthlyGrossSalary: '',
+    yearlyGrossSalary: '',
+    professionalTaxMonthly: '',
+    professionalTaxYearly: '',
+    incomeTaxMonthly: '',
+    incomeTaxYearly: '',
+    netMonthlyTakeHome: '',
+    netYearlyTakeHome: '',
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,10 +71,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-2xl">
+      <Card className="w-full max-w-4xl">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-blue-600">
-           R K INSURANCE SERVICE - Offer Letter
+            R K Insurance Service - Offer Letter
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -87,55 +109,131 @@ export default function App() {
                 onChange={handleInputChange}
               />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="address">Address</Label>
+              <Input
+                id="address"
+                name="address"
+                placeholder="Enter Address"
+                value={formData.address}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="mail">Email</Label>
+              <Input
+                id="mail"
+                name="mail"
+                type="email"
+                placeholder="Enter Email"
+                value={formData.mail}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="mobile">Mobile</Label>
+              <Input
+                id="mobile"
+                name="mobile"
+                placeholder="Enter Mobile"
+                value={formData.mobile}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="basicDA">Basic + DA</Label>
+              <Label htmlFor="basicDAMonthly">Basic(Monthly)</Label>
               <Input
-                id="basicDA"
-                name="basicDA"
-                value={formData.basicDA}
+                id="basicDAMonthly"
+                name="basicDAMonthly"
+                value={formData.basicDAMonthly}
                 onChange={handleInputChange}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="hra">HRA</Label>
+              <Label htmlFor="basicDAYearly">Basic(Yearly)</Label>
               <Input
-                id="hra"
-                name="hra"
-                value={formData.hra}
+                id="basicDAYearly"
+                name="basicDAYearly"
+                value={formData.basicDAYearly}
                 onChange={handleInputChange}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="executiveAllowance">Executive Allowance</Label>
+              <Label htmlFor="hraMonthly">HRA (Monthly)</Label>
               <Input
-                id="executiveAllowance"
-                name="executiveAllowance"
-                value={formData.executiveAllowance}
+                id="hraMonthly"
+                name="hraMonthly"
+                value={formData.hraMonthly}
                 onChange={handleInputChange}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="bonus">Bonus</Label>
+              <Label htmlFor="hraYearly">HRA (Yearly)</Label>
               <Input
-                id="bonus"
-                name="bonus"
-                value={formData.bonus}
+                id="hraYearly"
+                name="hraYearly"
+                value={formData.hraYearly}
                 onChange={handleInputChange}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="epf">EPF (Employer Contribution)</Label>
+              <Label htmlFor="executiveAllowanceMonthly">Special Allowance (Monthly)</Label>
               <Input
-                id="epf"
-                name="epf"
-                value={formData.epf}
+                id="executiveAllowanceMonthly"
+                name="executiveAllowanceMonthly"
+                value={formData.executiveAllowanceMonthly}
                 onChange={handleInputChange}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="monthlyGrossSalary">Monthly Gross Salary [A]</Label>
+              <Label htmlFor="executiveAllowanceYearly">Special Allowance (Yearly)</Label>
+              <Input
+                id="executiveAllowanceYearly"
+                name="executiveAllowanceYearly"
+                value={formData.executiveAllowanceYearly}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="bonusMonthly">Bonus (Monthly)</Label>
+              <Input
+                id="bonusMonthly"
+                name="bonusMonthly"
+                value={formData.bonusMonthly}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="bonusYearly">Bonus (Yearly)</Label>
+              <Input
+                id="bonusYearly"
+                name="bonusYearly"
+                value={formData.bonusYearly}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="epfMonthly">EPF (Monthly)</Label>
+              <Input
+                id="epfMonthly"
+                name="epfMonthly"
+                value={formData.epfMonthly}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="epfYearly">EPF (Yearly)</Label>
+              <Input
+                id="epfYearly"
+                name="epfYearly"
+                value={formData.epfYearly}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="monthlyGrossSalary">Gross Salary (Monthly)</Label>
               <Input
                 id="monthlyGrossSalary"
                 name="monthlyGrossSalary"
@@ -144,38 +242,65 @@ export default function App() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="professionalTax">Less PT (PROFESSIONAL TAX)</Label>
+              <Label htmlFor="yearlyGrossSalary">Gross Salary (Yearly)</Label>
               <Input
-                id="professionalTax"
-                name="professionalTax"
-                value={formData.professionalTax}
+                id="yearlyGrossSalary"
+                name="yearlyGrossSalary"
+                value={formData.yearlyGrossSalary}
                 onChange={handleInputChange}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="esi">Less ESI 0.75% Employee</Label>
+              <Label htmlFor="professionalTaxMonthly">Professional Tax (Monthly)</Label>
               <Input
-                id="esi"
-                name="esi"
-                value={formData.esi}
+                id="professionalTaxMonthly"
+                name="professionalTaxMonthly"
+                value={formData.professionalTaxMonthly}
                 onChange={handleInputChange}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="totalDeduction">Total Employee's Deduction [B]</Label>
+              <Label htmlFor="professionalTaxYearly">Professional Tax (Yearly)</Label>
               <Input
-                id="totalDeduction"
-                name="totalDeduction"
-                value={formData.totalDeduction}
+                id="professionalTaxYearly"
+                name="professionalTaxYearly"
+                value={formData.professionalTaxYearly}
                 onChange={handleInputChange}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="netMonthlyTakeHome">Net Monthly Take Home (A-B)*</Label>
+              <Label htmlFor="incomeTaxMonthly">Income Tax (Monthly)</Label>
+              <Input
+                id="incomeTaxMonthly"
+                name="incomeTaxMonthly"
+                value={formData.incomeTaxMonthly}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="incomeTaxYearly">Income Tax (Yearly)</Label>
+              <Input
+                id="incomeTaxYearly"
+                name="incomeTaxYearly"
+                value={formData.incomeTaxYearly}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="netMonthlyTakeHome">Net Salary (Monthly)</Label>
               <Input
                 id="netMonthlyTakeHome"
                 name="netMonthlyTakeHome"
                 value={formData.netMonthlyTakeHome}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="netYearlyTakeHome">Net Salary (Yearly)</Label>
+              <Input
+                id="netYearlyTakeHome"
+                name="netYearlyTakeHome"
+                value={formData.netYearlyTakeHome}
                 onChange={handleInputChange}
               />
             </div>
@@ -184,11 +309,12 @@ export default function App() {
             document={<OfferLetterPDF data={formData} />}
             fileName="offer-letter.pdf"
             className="block w-full"
-          > 
+          >
+            
               <Button className="w-full bg-green-600 hover:bg-green-700" disabled={ !formData.name || !formData.position}>
                 Download Offer Letter
               </Button>
-          
+       
           </PDFDownloadLink>
         </CardContent>
       </Card>
