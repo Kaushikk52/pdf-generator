@@ -176,8 +176,8 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <View style={styles.headerContent}>
-            <Image src="/logo.jpeg" style={styles.logo} />
-            <Text style={styles.companyName}>R K Insurance </Text>
+            <Image src="/logo.png" style={styles.logo} />
+            <Text style={styles.companyName}>RK Insurance </Text>
             <Text style={styles.companyName}> Services</Text>
           </View>
           
@@ -190,7 +190,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
           <Text style={styles.subtitle}>Mobile:- {data.mobile}</Text>
         </View>
         <View style={styles.section}>
-        <Text style={styles.subject}>Subject: Offer Letter</Text>
+        <Text style={styles.subject}>Offer Letter</Text>
           <Text style={styles.text}>Dear {data.name},</Text>
           <Text style={styles.text}>
             As per our discussion, we are pleased to offer you the position of "{data.position}". As discussed, the broad terms
@@ -200,7 +200,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         <View style={styles.section}>
           <Text style={styles.text}>
             Your employment shall begin from the date of your reporting at the premises of our esteemed
-            Organization "R K Insurance Service" located at MUMBAI.
+            Organization "RK Insurance Service" located at MUMBAI.
           </Text>
         </View>
         <View style={styles.section}>
@@ -212,7 +212,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         </View>
         <View style={styles.section}>
           <Text style={styles.text}>
-            For all reasons you will be deemed an employee of R K INSURANCE SERVICES
+            For all reasons you will be deemed an employee of RK INSURANCE SERVICES
             PVT.LTD
           </Text>
         </View>
@@ -391,7 +391,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         </View>
         <View style={styles.footer}>
           <Text>Thanking you,</Text>
-          <Text>For R K Insurance Service I Confirm and Accept this Offer Letter and Annexure</Text>
+          <Text>For RK Insurance Service I Confirm and Accept this Offer Letter and Annexure</Text>
           <View style={styles.signature}>
             <View>
               <Text>Authorized Signatory</Text>
@@ -543,7 +543,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
 
             Employees must obtain written approval from their supervisor and the Human Resources
             department before engaging in any outside employment. Such employment must not interfere
-            with job performance, involve working with competitors, or create any conflict of interest with R K
+            with job performance, involve working with competitors, or create any conflict of interest with RK
              Insurance Service Failure to comply with this policy may result in disciplinary action,
             including termination.
 
@@ -574,7 +574,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
         <View style={styles.section}>
           <Text style={styles.title}>Declaration</Text>
           <Text style={styles.text}>
-            I, {data.name}, have read, understood, and accept all the terms and conditions outlined in this offer letter. I agree to abide by the company's policies, rules, and regulations during my employment with R K Insurance Service.
+            I, {data.name}, have read, understood, and accept all the terms and conditions outlined in this offer letter. I agree to abide by the company's policies, rules, and regulations during my employment with RK Insurance Service.
           </Text>
         </View>
         <View style={styles.section}>

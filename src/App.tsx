@@ -74,7 +74,7 @@ export default function App() {
       <Card className="w-full max-w-4xl">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center text-blue-600">
-            R K Insurance Service - Offer Letter
+            RK Insurance Service - Offer Letter
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
