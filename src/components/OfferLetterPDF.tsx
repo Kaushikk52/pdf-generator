@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   logo: {
-    width: 70,
+    width: 80,
     height: 50,
     marginRight: 10,
   },
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: 'absolute',
-    bottom: 30,
+    bottom: 25,
     left: 30,
     right: 30,
     textAlign: 'center',
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   pageNumber: {
     position: 'absolute',
-    bottom: 40,
+    bottom: 35,
     left: 0,
     right: 0,
     textAlign: 'center',
@@ -122,12 +122,12 @@ const styles = StyleSheet.create({
   },
   referenceAddress: {
     position: 'absolute',
-    bottom: 20,
-    left: 0,
+    bottom: 10,
+    left: 20,
     right: 0,
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: 8,
-    color: '#7F8C8D',
+    color: 'black',
   },
   signature: {
     flexDirection: 'row',
@@ -180,7 +180,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             <Text style={styles.companyName}>R K Insurance </Text>
             <Text style={styles.companyName}> Services</Text>
           </View>
-          <Text style={styles.subject}>Subject: Offer Letter</Text>
+          
         </View>
         <View style={styles.section}>
           <Text style={styles.subtitle}>Name:- {data.name}</Text>
@@ -190,6 +190,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
           <Text style={styles.subtitle}>Mobile:- {data.mobile}</Text>
         </View>
         <View style={styles.section}>
+        <Text style={styles.subject}>Subject: Offer Letter</Text>
           <Text style={styles.text}>Dear {data.name},</Text>
           <Text style={styles.text}>
             As per our discussion, we are pleased to offer you the position of "{data.position}". As discussed, the broad terms
@@ -250,7 +251,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             `${pageNumber} / ${totalPages}`
           )} fixed />
           <Text style={styles.referenceAddress} fixed>
-            R K Insurance Service, Mumbai, Maharashtra, India
+          D/ 319, Shanti Shopping Center, Mira Road East - 401107.
           </Text>
         </>
       </Page>
@@ -407,7 +408,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             `${pageNumber} / ${totalPages}`
           )} fixed />
           <Text style={styles.referenceAddress} fixed>
-          R K Insurance Service, Mumbai, Maharashtra, India
+          D/ 319, Shanti Shopping Center, Mira Road East - 401107.
           </Text>
         </>
       </Page>
@@ -478,7 +479,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             `${pageNumber} / ${totalPages}`
           )} fixed />
           <Text style={styles.referenceAddress} fixed>
-          R K Insurance Service, Mumbai, Maharashtra, India
+          D/ 319, Shanti Shopping Center, Mira Road East - 401107.
           </Text>
         </>
       </Page>
@@ -564,7 +565,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             `${pageNumber} / ${totalPages}`
           )} fixed />
           <Text style={styles.referenceAddress} fixed>
-          R K Insurance Service, Mumbai, Maharashtra, India
+          D/ 319, Shanti Shopping Center, Mira Road East - 401107.
           </Text>
         </>
       </Page>
@@ -597,7 +598,7 @@ export default function OfferLetterPDF({ data }: OfferLetterPDFProps) {
             `${pageNumber} / ${totalPages}`
           )} fixed />
           <Text style={styles.referenceAddress} fixed>
-          R K Insurance Service, Mumbai, Maharashtra, India
+          D/ 319, Shanti Shopping Center, Mira Road East - 401107.
           </Text>
         </>
       </Page>
