@@ -37,7 +37,7 @@ export default function App() {
   const [formData, setFormData] = useState<OfferLetterData>({
     position: '',
     name: '',
-    date: new Date().toISOString().split('T')[0],
+    date: `${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}` ,
     address: '',
     mail: '',
     mobile: '',
